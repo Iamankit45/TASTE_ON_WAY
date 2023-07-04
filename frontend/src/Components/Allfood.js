@@ -1,5 +1,5 @@
 
-// import { useFoodContext  } from '../Context/foodContext';
+import { useFoodContext  } from '../Context/foodContext';
 import { useFilterContext } from '../Context/filterContext';
 import LeftSide from './LeftSide'
 import './Allfood.css'
@@ -8,13 +8,13 @@ import Cards from "./Cards"
 
 const Allfood = () => {
 
-  // const { isLoading, foodItems } = useFoodContext();
+  const { isLoading, foodItems } = useFoodContext();
   const{filter_Foods}=useFilterContext();
 
   // console.log(isLoading);
-  // if (isLoading) {
-  //   return <div>Loading...</div>
-  // }
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
 
   // console.log(foodItems);
 

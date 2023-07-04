@@ -25,7 +25,7 @@ const filterReducer = (state, action) => {
             let { all_Foods } = state;
             let tempFilterFoods = [...all_Foods];
 
-            const { text } = state.filters;
+            const { text,category } = state.filters;
 
 
 
@@ -40,7 +40,13 @@ const filterReducer = (state, action) => {
                 })
             }
 
+            if (category) {
 
+
+                tempFilterFoods = tempFilterFoods.filter((curElem) => {
+                    return curElem.category===category;
+                })
+            }
 
             // console.log(tempFilterFoods);
 

@@ -12,7 +12,7 @@ const initialState = {
 
     filters: {
         text: "",
-        category: "all",
+        category: "",
         cost: 0
 
     }
