@@ -7,6 +7,7 @@ import Contact from "./Contact";
 import FoodZone from "./FoodZone";
 import Header  from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
+import SingleFoodData from "./SingleFoodData";
 import ErrorPage from "./ErrorPage";
 import "./App.css";
 const App = () => {
@@ -22,6 +23,8 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/foodZone" element={<FoodZone/>} />
+        <Route path="/SingleFoodData/:id" element={<SingleFoodData/>} />
+        
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer/>

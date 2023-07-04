@@ -11,53 +11,67 @@ const API = "http://localhost:8000/api/v1/food";
 
 
 const initialState = {
-    isLoading: true,
-    isError: false,
-    foodItems: [],
-   
-  };
-  
+  isLoading: true,
+  isError: false,
+  foodItems: [],
+  singleFood: {}
+};
+
 
 
 
 const AppProvider = ({ children }) => {
 
-    const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-    const getFoods = async (url) => {
+  const getFoods = async (url) => {
 
-      // dispatch({ type:"SET_LOADING"});
-        try {
-         
-          const res = await axios.get(url);
-         
-          const foodItems = await res.data.data;
-          // foodItems=foodItems.data;
-          // console.log(foodItems);
-        
-          dispatch({ type: "SET_API_DATA", payload:foodItems });
-         
-        } catch (error) {
-         
-          dispatch({ type: "API_ERROR" });
-        }
-      };
+    // dispatch({ type:"SET_LOADING"});
+    try {
 
-   
+      const res = await axios.get(url);
 
-    useEffect(() => {
-        getFoods(API);
-    },[]);
+      const foodItems = await res.data.data;
+      // foodItems=foodItems.data;
+      // console.log(foodItems);
+
+      dispatch({ type: "SET_API_DATA", payload: foodItems });
+
+    } catch (error) {
+
+      dispatch({ type: "API_ERROR" });
+    }
+  };
 
 
-    return (
-        <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
-    );
+  const getSingleFoodData = async (url) => {
+    // console.log(url);
+
+    dispatch({ type: "SET_LOADING" });
+    try {
+      const res = await axios.get(url);
+      const singleFood = await res.data.data;
+      // console.log(singleFood);
+      dispatch({ type: "SET_SINGLE_FOOD", payload: singleFood });
+    } catch (error) {
+      dispatch({ type: "SET_SINGLE_ERROR" });
+    }
+  }
+
+
+  useEffect(() => {
+    getFoods(API);
+  }, []);
+
+
+  return (
+    <AppContext.Provider value={{ ...state, getSingleFoodData }}>{children}</AppContext.Provider>
+  );
 }
 
 // custom hooks
 const useFoodContext = () => {
-    return useContext(AppContext);
+  return useContext(AppContext);
 };
 
 export { AppProvider, useFoodContext };

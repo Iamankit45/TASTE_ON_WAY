@@ -9,3 +9,13 @@
     display: flex;
     flex-direction: column;
 }
+.filter-categoryButton{
+
+    /* background-color: antiquewhite; */
+  
+}
+.filter-categoryButton-active{
+
+    background-color:green;
+    opacity: 1;
+}

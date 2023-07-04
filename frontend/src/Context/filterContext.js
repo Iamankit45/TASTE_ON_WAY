@@ -12,8 +12,9 @@ const initialState = {
 
     filters: {
         text: "",
-        category: "",
-        cost: 0
+        category: "all",
+        cost: 0,
+        restaurant_name:"all",
 
     }
 

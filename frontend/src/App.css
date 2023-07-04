@@ -1,0 +1,19 @@
+.SingleFoodPage{
+    display: flex;
+   flex-direction: row;
+}
+
+.SingleFoodPage-info{
+    display: flex;
+    flex-direction: column;
+}
+.SingleFoodPage-brief{
+    flex:40%;
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+}
+.SingleFoodPage-fullDescription{
+    flex:60%;
+    background-color: antiquewhite;
+}

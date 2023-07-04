@@ -21,7 +21,7 @@ const Allfood = () => {
   if(filter_Foods.length<=0){
     return (
     <div>
-     <h1>No food items matched according to your filter</h1> 
+     <h3>No food items matched according to your filter</h3> 
       </div>
       )
     

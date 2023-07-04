@@ -25,7 +25,7 @@ const filterReducer = (state, action) => {
             let { all_Foods } = state;
             let tempFilterFoods = [...all_Foods];
 
-            const { text,category } = state.filters;
+            const { text,category ,restaurant_name} = state.filters;
 
 
 
@@ -39,12 +39,21 @@ const filterReducer = (state, action) => {
                     return curElem.name.toLowerCase().includes(text);
                 })
             }
+           
+            if (category !== "all") {
 
-            if (category) {
-
-
+          
                 tempFilterFoods = tempFilterFoods.filter((curElem) => {
                     return curElem.category===category;
+                })
+            }
+            
+
+            if (restaurant_name !== "all") {
+
+          
+                tempFilterFoods = tempFilterFoods.filter((curElem) => {
+                    return curElem.restaurant_name===restaurant_name;
                 })
             }
 

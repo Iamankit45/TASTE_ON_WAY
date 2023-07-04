@@ -49,10 +49,25 @@ const getFoodctrl = async (req, res) => {
 
     res.status(201).json({
         status: "success",
-        data:FoodData
+        data: FoodData
     });
 
 }
 
 
-module.exports = { createFoodCtrl, getFoodctrl };
+const getSingleFoodctrl = async (req, res) => {
+
+    const id = req.params.id;
+ 
+    const singlefood = await Food.findById(id);
+
+    res.status(201).json({
+        status: "success",
+        data: singlefood
+    });
+
+}
+
+
+
+module.exports = { createFoodCtrl, getFoodctrl, getSingleFoodctrl };
