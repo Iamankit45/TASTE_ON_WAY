@@ -1,7 +1,9 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useFoodContext } from './Context/foodContext';
 import { FaMinus, FaPlus } from "react-icons/fa";
+import AddToCart from "./Components/AddToCart";
+
 const API = "http://localhost:8000/api/v1/food/";
 
 const SingleFoodData = () => {
@@ -49,10 +51,16 @@ const SingleFoodData = () => {
                         <div className="SingleFoodPage-cost">Rs. {cost}</div>
                         <span className="SingleFoodPage-restaurantname"> Restaurant Name : {restaurant_name}</span>
 
-                        <div className="SingleFoodPage-button">
-                            <button> <FaMinus /></button>10
+                        <div className="SingleFoodPage-addToCart">
 
-                            <button> <FaPlus /></button>
+                        <AddToCart food ={singleFood}/>
+                         
+                           
+                        </div>
+
+
+                        <div className="SingleFoodPage-orderNow">
+                      
                         </div>
                     </div>
                 </div>

@@ -17,3 +17,39 @@
     flex:60%;
     background-color: antiquewhite;
 }
+
+
+
+
+.cart-item{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    .cart-item {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+.cart_heading{
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-Image{
+    width: 12rem;
+    height: 12rem;
+    object-fit: cover;
+    border-radius: 5px;
+}
+

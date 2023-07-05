@@ -8,6 +8,7 @@ import FoodZone from "./FoodZone";
 import Header  from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import SingleFoodData from "./SingleFoodData";
+import Cart from "./Cart";
 import ErrorPage from "./ErrorPage";
 import "./App.css";
 const App = () => {
@@ -24,7 +25,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/foodZone" element={<FoodZone/>} />
         <Route path="/SingleFoodData/:id" element={<SingleFoodData/>} />
-        
+        <Route path="/cart" element={<Cart/>} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer/>
