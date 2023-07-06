@@ -3,7 +3,7 @@ import CartItem from "./Components/CartItem";
 import { useCartContext } from "./Context/cartContext";
 const Cart = () => {
 
-    const { cart } = useCartContext();
+    const { cart ,clearCart } = useCartContext();
     // console.log(cart);
     return (
         <>
@@ -25,6 +25,15 @@ const Cart = () => {
                         return <CartItem key={curElem.id} {...curElem} />;
                     })}
                 </div>
+                <div>
+                    <hr/>
+
+                   <button  onClick={clearCart} className="cart-clearButton">
+                    Clear cart
+                   </button>
+                </div>
+
+
             </div>
 
 
