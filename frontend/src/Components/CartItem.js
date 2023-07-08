@@ -6,16 +6,10 @@ import "./cartItem.css";
 
 const CartItem = ({ id, name, photo, cost, amount ,restaurant_name }) => {
     // console.log(id, name, photo ,cost, amount);
-    const { removeItem} = useCartContext();
+    const { removeItem,setDecrease,
+        setIncrement} = useCartContext();
 
-    const setDecrease = () => {
-        // amount > 1 ? setAmount(amount - 1) : setAmount(1);
-    };
-
-
-    const setIncrement = () => {
-        // amount < stock ? setAmount(amount + 1) : setAmount(stock);
-    };
+    
 
 
     return (

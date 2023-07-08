@@ -6,23 +6,47 @@ const cartReducer = (state, action) => {
     if (action.type === "ADD_TO_CART") {
         let { amount, food } = action.payload;
 
-        let cartFood = {
-            id: food._id,
-            name: food.name,
-            amount,
-            cost:food.cost,
-            restaurant_name: food.restaurant_name,
-            photo:food.photo,
+        let existingProduct = state.cart.find(
+            (curItem) => curItem.id == food._id
+        );
+
+        if (existingProduct) {
+            let updatedProduct = state.cart.map((curElem) => {
+                if (curElem.id === food._id) {
+                    let newAmount = curElem.amount + amount;
+
+                    
+                    return {
+                        ...curElem,
+                        amount: newAmount,
+                    };
+                } else {
+                    return curElem;
+                }
+            });
+            return {
+                ...state,
+                cart: updatedProduct,
+            };
+        } else {
+
+            let cartFood = {
+                id: food._id,
+                name: food.name,
+                amount,
+                cost: food.cost,
+                restaurant_name: food.restaurant_name,
+                photo: food.photo,
 
 
+            }
+
+
+            return {
+                ...state,
+                cart: [...state.cart, cartFood]
+            };
         }
-
-
-        return {
-            ...state,
-            cart: [...state.cart,cartFood]
-        };
-
     }
 
     if (action.type === "REMOVE_ITEM") {
@@ -34,8 +58,45 @@ const cartReducer = (state, action) => {
             cart: updatedCart,
         };
     }
-    
 
+// to set the increment and decrement
+if (action.type === "SET_DECREMENT") {
+    let updatedProduct = state.cart.map((curElem) => {
+        if (curElem.id === action.payload) {
+            let decAmount = curElem.amount - 1;
+
+            if (decAmount <= 1) {
+                decAmount = 1;
+            }
+
+            return {
+                ...curElem,
+                amount: decAmount,
+            };
+        } else {
+            return curElem;
+        }
+    });
+    return { ...state, cart: updatedProduct };
+}
+
+if (action.type === "SET_INCREMENT") {
+    let updatedProduct = state.cart.map((curElem) => {
+        if (curElem.id === action.payload) {
+            let incAmount = curElem.amount + 1;
+
+            
+
+            return {
+                ...curElem,
+                amount: incAmount,
+            };
+        } else {
+            return curElem;
+        }
+    });
+    return { ...state, cart: updatedProduct };
+}
     // to empty or to clear to cart
     if (action.type === "CLEAR_CART") {
         return {
