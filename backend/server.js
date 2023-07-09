@@ -7,12 +7,16 @@ dotenv.config({ path: "./config/config.env" });
 const dbConnect = require("./config/db");
 const cors = require("cors");
 const corsOptions = require('./utils/corsOptions');
+const cookieParser = require('cookie-parser');
+const credentials = require('./middleware/credentials');
 const app = express();
 const port = process.env.PORT || 8000;
 
+
+app.use(credentials);
 app.use(cors(corsOptions));
 app.use(express.json());
-
+app.use(cookieParser());
 
 
 

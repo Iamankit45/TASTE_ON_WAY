@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CartItem from "./Components/CartItem";
 import { useCartContext } from "./Context/cartContext";
 const Cart = () => {
 
-    const { cart ,clearCart } = useCartContext();
+
+
+    const { cart, clearCart } = useCartContext();
     // console.log(cart);
     return (
         <>
@@ -26,11 +28,11 @@ const Cart = () => {
                     })}
                 </div>
                 <div>
-                    <hr/>
+                    <hr />
 
-                   <button  onClick={clearCart} className="cart-clearButton">
-                    Clear cart
-                   </button>
+                    <button onClick={clearCart} className="cart-clearButton">
+                        Clear cart
+                    </button>
                 </div>
 
 

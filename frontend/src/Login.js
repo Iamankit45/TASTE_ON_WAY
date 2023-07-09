@@ -10,36 +10,42 @@ const Login = () => {
   const LoginUser = async (e) => {
     e.preventDefault();
 
-    
-    {const res = await fetch("http://localhost:8000/api/v1/users/login", {
 
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email, password
+    {
+      const res = await fetch("http://localhost:8000/api/v1/users/login", {
+
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+       
+        credentials: "include",
+        body: JSON.stringify({
+          email, password
+        }),
+
+
+        
       })
 
+      
+      const data = res.json();
 
 
-    })
+      if (res.status === 500 || !data) {
+
+        window.alert("Invalid");
+        console.log("inavlid login");
+      } else {
+        window.alert("login successfull");
 
 
-    const data = res.json();
-    // console.log(data.data);
 
-    if (res.status === 500 || !data ||Error.message==="invalid login credentials"||Promise.PromiseState==="rejected") {
-    // if (data.status ==='success') {
-      window.alert("Invalid");
-      console.log("inavlid login");
-    } else {
-      window.alert("login successfull");
-      console.log("login successsufl");
-      console.log(data.data);
-      navigate('/profile');
-    }}
-    
+
+        navigate('/profile');
+      }
+    }
+
   }
 
   return (
@@ -53,7 +59,7 @@ const Login = () => {
 
               <div className="login-formGroup">
                 <label htmlFor="email">email</label>
-                <input type="email" name="email" id="email" placeholder="email" autoComplete="off" value={email} onChange={(e) => { setEmail(e.target.value) }}></input>
+                <input type="email" name="email" id="email" placeholder="email" autoComplete="on" value={email} onChange={(e) => { setEmail(e.target.value) }}></input>
               </div>
               <div className="login-formGroup">
                 <label htmlFor="password">Password</label>
