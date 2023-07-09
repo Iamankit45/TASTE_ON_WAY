@@ -12,6 +12,7 @@ import Cart from "./Cart";
 import Profile from "./Profile";
 import ErrorPage from "./ErrorPage";
 import SignUp from "./Components/SignUp"
+import LogOut from "./Components/LogOut";
 import "./App.css";
 const App = () => {
 
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="/Profile" element={<Profile/>} />
 
         <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/logout" element={<LogOut/>} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer/>

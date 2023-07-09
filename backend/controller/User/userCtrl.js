@@ -94,6 +94,19 @@ const userLoginCtrl = async (req, res) => {
 
 
 
+
+const userLogOutCtrl = async (req, res) => {
+
+  try {
+    res.clearCookie('jwtoken');
+    res.status(200).send('user logout');
+  } catch (error) {
+    console.log(error);
+  }
+
+
+}
+
 const userProfileCtrl = async (req, res, next) => {
   // console.log(req.userAuth);
 
@@ -110,4 +123,4 @@ const userProfileCtrl = async (req, res, next) => {
   }
 };
 
-module.exports = { userRegisterCtrl, userLoginCtrl, userProfileCtrl };
+module.exports = { userRegisterCtrl, userLoginCtrl, userProfileCtrl, userLogOutCtrl };
