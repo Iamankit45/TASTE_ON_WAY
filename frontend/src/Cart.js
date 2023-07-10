@@ -4,6 +4,13 @@ import { useCartContext } from "./Context/cartContext";
 const Cart = () => {
 
 
+  
+
+
+
+
+
+
 
     const { cart, clearCart } = useCartContext();
     // console.log(cart);

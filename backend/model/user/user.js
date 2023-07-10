@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema(
         type: Number,
         required: [true, "Please enter your number"]
       },
-      
+      cart:[],
       
       
       passwordChangedAt: Date,

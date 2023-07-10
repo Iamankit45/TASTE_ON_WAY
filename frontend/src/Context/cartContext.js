@@ -19,6 +19,10 @@ const getLocalCartData = () => {
     return parsedData;
 };
 
+
+
+
+
 const initialState = {
     // cart: [],
     cart: getLocalCartData(),
@@ -59,6 +63,37 @@ const CartProvider = ({ children }) => {
         dispatch({ type: "CLEAR_CART" });
     };
     useEffect(() => {
+
+
+        fetch("http://localhost:8000/api/v1/users/addToCart", {
+
+        method: 'POST',
+        headers: {
+
+            Accept: 'application/json',
+
+            "Content-Type": 'application/json',
+
+
+        },
+
+        body : JSON.stringify(state.cart),
+        credentials: "include",
+    }).then((res) => {
+
+        console.log(res.status);
+
+        if (res.status !== 200) {
+            const error = new Error(res.error);
+            throw error;
+        }
+        
+    }).catch((err) => {
+        console.log(err);
+    })
+
+
+
 
 
         localStorage.setItem("AnkitCart", JSON.stringify(state.cart));

@@ -123,4 +123,64 @@ const userProfileCtrl = async (req, res, next) => {
   }
 };
 
-module.exports = { userRegisterCtrl, userLoginCtrl, userProfileCtrl, userLogOutCtrl };
+
+const addToCartCtrl = async (req, res, next) => {
+
+
+  const ele = req.body;
+
+  try {
+    const token = getTokenFromHeader(req);
+
+    const user = await User.findById(req.userAuth);
+
+    const existingCartItems = user.cart;
+
+
+    // console.log(existingCartItems);
+    for (const item of ele) {
+      const existingCartItem = existingCartItems.find((cartItem) => cartItem.id === item.id);
+
+      if (existingCartItem) {
+        // If the amount has changed, update the cart item
+        if (existingCartItem.amount !== item.amount) {
+          existingCartItem.amount = item.amount;
+          user.markModified('cart')
+          await user.save(); // Save changes for the existing cart item
+
+        }
+      } else {
+        existingCartItems.push(item);
+      }
+    }
+
+
+    // Remove deleted cart items if any due to which this route has called by frontened
+    existingCartItems.forEach((existingCartItem, index) => {
+      const matchingItem = ele.find((item) => item.id === existingCartItem.id);
+      if (!matchingItem) {
+        existingCartItems.splice(index, 1);
+      }
+    });
+
+    user.markModified('cart');
+    await user.save();
+
+    res.json(
+      {
+        status: "success",
+        data: user
+      }
+    )
+
+
+  } catch (error) {
+
+    console.log(error.message);
+  }
+
+
+
+}
+
+module.exports = { userRegisterCtrl, userLoginCtrl, userProfileCtrl, userLogOutCtrl, addToCartCtrl };
