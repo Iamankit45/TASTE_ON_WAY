@@ -183,4 +183,29 @@ const addToCartCtrl = async (req, res, next) => {
 
 }
 
-module.exports = { userRegisterCtrl, userLoginCtrl, userProfileCtrl, userLogOutCtrl, addToCartCtrl };
+
+const getCartdataCtrl = async(req, res,next) => {
+
+try {
+  const token = getTokenFromHeader(req);
+
+    const user = await User.findById(req.userAuth);
+
+    const existingCartItems = user.cart;
+
+  res.json({
+    status: "success",
+    data: existingCartItems
+  })
+
+
+} catch (error) {
+  console.log(error.message);
+}
+
+}
+
+
+
+
+module.exports = { userRegisterCtrl, userLoginCtrl, userProfileCtrl, userLogOutCtrl, addToCartCtrl ,getCartdataCtrl};

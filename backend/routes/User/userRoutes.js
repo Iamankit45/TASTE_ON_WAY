@@ -3,7 +3,7 @@ const storage = require("../../config/cloudinary");
 const multer = require("multer");
 
 
-const {  userRegisterCtrl,userLoginCtrl,userProfileCtrl,userLogOutCtrl,addToCartCtrl}= require("../../controller/User/userCtrl");
+const {  userRegisterCtrl,userLoginCtrl,userProfileCtrl,userLogOutCtrl,addToCartCtrl,getCartdataCtrl}= require("../../controller/User/userCtrl");
 
 const upload = multer({ storage });
 const userRouter = express.Router();
@@ -17,4 +17,5 @@ userRouter.post("/login", userLoginCtrl);
 userRouter.get("/profile/",isLogin,userProfileCtrl);
 userRouter.get("/logOut",userLogOutCtrl);
 userRouter.post("/addToCart",isLogin,addToCartCtrl);
+userRouter.get("/profile/getCartData",isLogin,getCartdataCtrl);
 module.exports = userRouter;
