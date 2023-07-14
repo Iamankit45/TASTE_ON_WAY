@@ -184,12 +184,11 @@ const addToCartCtrl = async (req, res, next) => {
 }
 
 
-const getCartdataCtrl = async(req, res,next) => {
+const getCartdataCtrl = async(req, res) => {
 
 try {
   const token = getTokenFromHeader(req);
-
-    const user = await User.findById(req.userAuth);
+  const user = await User.findById(req.userAuth);
 
     const existingCartItems = user.cart;
 

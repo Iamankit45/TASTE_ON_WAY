@@ -11,8 +11,8 @@ root.render(
   <AppProvider>
     <FilterContextProvider>
 
-<CartProvider>
-      <App />
+      <CartProvider>
+        <App />
       </CartProvider>
     </FilterContextProvider>
   </AppProvider>

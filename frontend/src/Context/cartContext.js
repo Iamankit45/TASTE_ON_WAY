@@ -1,28 +1,13 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
 import reducer from "../Reducer/cartReducer";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const CartContext = createContext();
 
-// const getLocalCartData = () => {
-//     let localCartData = localStorage.getItem("AnkitCart");
-//     // if (localCartData === []) {
-//     //     return [];
-//     // } else {
-//     //     return JSON.parse(localCartData);
-//     // }
-
-//     const parsedData = JSON.parse(localCartData);
-
-//     if (!Array.isArray(parsedData)) {
-//         return [];
-//     }
-//     return parsedData;
-// };
-
-
 // to get cart data from the backened db
-const DbCartItem = async () => {
-   let CartData ;
+export const DbCartItem = async () => {
+
+    let CartData;
     try {
 
         const res = await fetch("http://localhost:8000/api/v1/users/profile/getCartData", {
@@ -42,30 +27,60 @@ const DbCartItem = async () => {
 
 
         const data = await res.json();
-       CartData= data.data;
+        CartData = data.data;
         // console.log(data.data);
         if (!res.status === 200) {
             const error = new Error(res.error);
             throw error;
+
         }
     } catch (error) {
 
         console.log(error);
+        // navigate("/login");
+
 
     }
 
-    
+
     return CartData;
 
 }
 
+
+//  export const fetchCartData = async () => {
+//     let cartData;
+//     try {
+//       const res = await fetch("http://localhost:8000/api/v1/users/profile/getCartData", {
+//         method: "GET",
+//         headers: {
+//           Accept: "application/json",
+//           "Content-Type": "application/json",
+//         },
+//         credentials: "include",
+//       });
+  
+//       if (!res.ok) {
+//         throw new Error("Failed to fetch cart data");
+//       }
+  
+//       const data = await res.json();
+//       cartData=data.data;
+//       return cartData;
+//     } catch (error) {
+//       console.log(error);
+
+//       // Handle the error (e.g., navigate to login)
+//       return [];
+//     }
+//   };
 
 
 
 
 const initialState = {
     // cart: [],
-    cart:await DbCartItem(),
+    cart: await DbCartItem(),
     total_item: "",
     total_price: "",
     shipping_fee: 50,
@@ -75,6 +90,15 @@ const initialState = {
 const CartProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(reducer, initialState)
+
+    // const loadCartData = async () => {
+    //     const cartData = await fetchCartData();
+    //     dispatch({ type: "SET_CART", payload: cartData });
+    //   };
+    
+    //   useEffect(() => {
+    //     loadCartData();
+    //   }, []);
 
     const addToCart = (amount, food) => {
 
@@ -102,6 +126,10 @@ const CartProvider = ({ children }) => {
     const clearCart = () => {
         dispatch({ type: "CLEAR_CART" });
     };
+
+
+
+
     useEffect(() => {
 
 
@@ -133,10 +161,6 @@ const CartProvider = ({ children }) => {
         })
 
 
-
-
-
-        localStorage.setItem("AnkitCart", JSON.stringify(state.cart));
     }, [state.cart]);
 
 
@@ -149,4 +173,21 @@ const CartProvider = ({ children }) => {
 const useCartContext = () => {
     return useContext(CartContext);
 };
+
+
 export { CartProvider, useCartContext };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

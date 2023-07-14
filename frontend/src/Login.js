@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import { NavLink, useNavigate } from "react-router-dom";
 
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+
   const navigate = useNavigate();
 
   const LoginUser = async (e) => {
+    
     e.preventDefault();
 
-
-    {
       const res = await fetch("http://localhost:8000/api/v1/users/login", {
 
         method: "POST",
@@ -23,13 +24,10 @@ const Login = () => {
         body: JSON.stringify({
           email, password
         }),
-
-
-        
       })
-
       
-      const data = res.json();
+      const data = await res.json();
+      console.log(data);
 
 
       if (res.status === 500 || !data) {
@@ -44,7 +42,7 @@ const Login = () => {
 
         navigate('/profile');
       }
-    }
+    
 
   }
 

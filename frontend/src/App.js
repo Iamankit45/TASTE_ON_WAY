@@ -1,6 +1,8 @@
 
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Home from "./Home";
 import Login from "./Login";
 import Contact from "./Contact";
@@ -13,6 +15,8 @@ import Profile from "./Profile";
 import ErrorPage from "./ErrorPage";
 import SignUp from "./Components/SignUp"
 import LogOut from "./Components/LogOut";
+
+
 import "./App.css";
 const App = () => {
 
@@ -22,13 +26,18 @@ const App = () => {
 
     <Router>
     <Header/>
+   
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/foodZone" element={<FoodZone/>} />
         <Route path="/SingleFoodData/:id" element={<SingleFoodData/>} />
+
+
         <Route path="/cart" element={<Cart/>} />
+
+
         <Route path="/Profile" element={<Profile/>} />
 
         <Route path="/SignUp" element={<SignUp />} />
@@ -37,6 +46,7 @@ const App = () => {
       </Routes>
       <Footer/>
     </Router>
+    
 
   )
 }
