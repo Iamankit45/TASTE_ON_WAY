@@ -1,48 +1,50 @@
 import React, { useState } from 'react'
 import { NavLink, useNavigate } from "react-router-dom";
-
+import { useUserContext } from './Context/userContext';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const { state, dispatch } = useUserContext()
+    ;
 
   const navigate = useNavigate();
 
   const LoginUser = async (e) => {
-    
+
     e.preventDefault();
 
-      const res = await fetch("http://localhost:8000/api/v1/users/login", {
+    const res = await fetch("http://localhost:8000/api/v1/users/login", {
 
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-       
-        credentials: "include",
-        body: JSON.stringify({
-          email, password
-        }),
-      })
-      
-      const data = await res.json();
-      console.log(data);
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
 
+      credentials: "include",
+      body: JSON.stringify({
+        email, password
+      }),
+    })
 
-      if (res.status === 500 || !data) {
-
-        window.alert("Invalid");
-        console.log("inavlid login");
-      } else {
-        window.alert("login successfull");
+    const data = await res.json();
+    console.log(data);
 
 
+    if (res.status === 500 || !data) {
+
+      window.alert("Invalid");
+      console.log("inavlid login");
+    } else {
+      window.alert("login successfull");
+
+      dispatch({ type: "USER", payload: true })
 
 
-        navigate('/profile');
-      }
-    
+      navigate('/profile');
+    }
+
 
   }
 

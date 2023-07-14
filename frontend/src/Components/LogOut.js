@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import { NavLink, useNavigate } from "react-router-dom";
+import { useUserContext } from '../Context/userContext';
 const LogOut = () => {
-
+    const { state, dispatch } = useUserContext();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -29,6 +30,7 @@ const LogOut = () => {
                 throw error;
             }
             else{
+                dispatch({ type: "USER", payload: false})
                 navigate("/login")
             }
         }).catch((err) => {
