@@ -6,12 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import { AppProvider } from "./Context/foodContext";
 import { FilterContextProvider } from "./Context/filterContext";
 import { CartProvider } from './Context/cartContext';
-
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import {UserProvider} from './Context/userContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
-  <UserProvider>
+  
   <AppProvider>
     <FilterContextProvider>
 
@@ -20,7 +20,7 @@ root.render(
       </CartProvider>
     </FilterContextProvider>
   </AppProvider>
-  </UserProvider>
+ 
 
 );
 

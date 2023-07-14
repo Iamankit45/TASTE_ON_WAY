@@ -6,8 +6,8 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const { state, dispatch } = useUserContext()
-    ;
+  const {setLoggedIn} = useUserContext();
+  
 
   const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ const Login = () => {
     })
 
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
 
 
     if (res.status === 500 || !data) {
@@ -39,7 +39,7 @@ const Login = () => {
     } else {
       window.alert("login successfull");
 
-      dispatch({ type: "USER", payload: true })
+      setLoggedIn(true);
 
 
       navigate('/profile');

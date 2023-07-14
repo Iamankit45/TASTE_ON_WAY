@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { NavLink, useNavigate } from "react-router-dom";
 import { useUserContext } from '../Context/userContext';
 const LogOut = () => {
-    const { state, dispatch } = useUserContext();
+    const {setLoggedIn} = useUserContext();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -25,13 +25,16 @@ const LogOut = () => {
 
             console.log(res);
 
-            if (res.status !== 200) {
-                const error = new Error(res.error);
-                throw error;
+            if (res.status == 200) {
+
+                setLoggedIn(false);
+
+                navigate("/login")
+                
             }
             else{
-                dispatch({ type: "USER", payload: false})
-                navigate("/login")
+                const error = new Error(res.error);
+                throw error;
             }
         }).catch((err) => {
             console.log(err);

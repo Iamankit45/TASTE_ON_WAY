@@ -15,7 +15,7 @@ import Profile from "./Profile";
 import ErrorPage from "./ErrorPage";
 import SignUp from "./Components/SignUp"
 import LogOut from "./Components/LogOut";
-
+import { UserProvider } from "./Context/userContext";
 
 import "./App.css";
 const App = () => {
@@ -25,7 +25,7 @@ const App = () => {
 
   return (
 
-
+<UserProvider>
     <Router>
     <Header/>
    
@@ -48,7 +48,7 @@ const App = () => {
       </Routes>
       <Footer/>
     </Router>
-    
+    </UserProvider>
 
   )
 }
