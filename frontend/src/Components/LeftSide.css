@@ -1,21 +1,57 @@
-.leftside-main{
-
-    display: flex;
-    flex-direction: column;
-    
-}
-
-.filter-category{
-    display: flex;
-    flex-direction: column;
-}
-.filter-categoryButton{
-
-    /* background-color: antiquewhite; */
+.leftside-main {
+    width: 100%;
+  }
   
-}
-.filter-categoryButton-active{
+  .leftside-searchBox {
+    margin-bottom: 20px;
+  }
+  
+  .leftside-Inputsearch {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .filter-category {
+    margin-bottom: 20px;
+  }
 
-    background-color:green;
-    opacity: 1;
-}
+  .filter-category {
+    display: flex;
+    flex-wrap: wrap;
+    /* Add other styling properties */
+  }
+  
+  .filter-category h3,
+  .hotelName-filter h3 {
+    margin-bottom: 10px;
+  }
+  
+
+  .filter-categoryButton {
+    width: 120px; 
+  }
+
+   .filter-categoryButton {
+    flex: 1 0 10px; }
+ 
+
+  .filter-category button,
+  .hotelName-filter button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .filter-categoryButton-active,
+  .hotelName-filter .filter-categoryButton-active {
+    background-color: #ff6f00;
+    color: white;
+  }
+  
+
+  

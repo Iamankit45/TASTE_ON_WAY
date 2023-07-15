@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink, useNavigate } from "react-router-dom";
 import { useUserContext } from './Context/userContext';
-
+import "./login.css";
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -58,7 +58,7 @@ const Login = () => {
             <form method="POST" className="login-register-form" id="registerForm">
 
               <div className="login-formGroup">
-                <label htmlFor="email">email</label>
+                <label htmlFor="email">Email</label>
                 <input type="email" name="email" id="email" placeholder="email" autoComplete="on" value={email} onChange={(e) => { setEmail(e.target.value) }}></input>
               </div>
               <div className="login-formGroup">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink ,useNavigate} from "react-router-dom";
-
+import "./signup.css";
 
 const SignUp = () => {
 const navigate = useNavigate();
@@ -84,6 +84,7 @@ const navigate = useNavigate();
                             <div className="signUp-formGroup">
                                 <input type="submit" name="signup" id="signup" className="form-submit" value="register" onClick={PostData}></input>
 
+                              
                                 <div className="already-signUp">
                                     <NavLink to="/login"><p> ALREADY signed up</p></NavLink>
                                 </div>

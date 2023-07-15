@@ -1,3 +1,78 @@
 /* .cart_heading{
     display:flex;
 } */
+
+
+.cart-item {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .cart-item {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  }
+  
+  .cart_heading {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-Image {
+    width: 12rem;
+    height: 12rem;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .cart-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cart-name {
+    flex-grow: 1;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .cart-quantity {
+    flex-shrink: 0;
+    font-size: 1.2rem;
+    margin-right: 10px;
+  }
+  
+  .cart-cost,
+  .cart-totalCost,
+  .cart-restaurantName,
+  .cart-pay {
+    flex-grow: 1;
+    /* text-align: center; */
+    font-size: 1.2rem;
+    /* font-weight: bold; */
+  }
+  
+  .cart-pay button {
+    background-color: #74d99e;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cart-pay button:hover {
+    background-color: #27ae60;
+  }
+  
+  .remove_icon {
+    color: red;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+  

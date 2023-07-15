@@ -4,33 +4,10 @@ const cartReducer = (state, action) => {
 
 
     if (action.type === "ADD_TO_CART") {
-        (async () => {
-            const isAuthenticated = async () => {
-                try {
-                    const res = await fetch("http://localhost:8000/api/v1/users/profile", {
-                        method: "GET",
-                        headers: {
-                            Accept: "application/json",
-                            "Content-Type": "application/json",
-                        },
-                        credentials: "include",
-                    });
 
-                    if (res.ok) {
-                        return true; // User is authenticated
-                    } else {
-                        return false; // User is not authenticated
-                    }
-                } catch (error) {
-                    console.log(error);
-                    return false; // Error occurred during authentication
-                }
-            };
-
-            const isUserAuthenticated = await isAuthenticated();
-
-            if (isUserAuthenticated) {
-                let { amount, food } = action.payload;
+        let { amount, food } = action.payload;
+        
+               
 
                 let existingProduct = state.cart.find((curItem) => curItem.id === food._id);
 
@@ -67,12 +44,7 @@ const cartReducer = (state, action) => {
                         cart: [...state.cart, cartFood],
                     };
                 }
-            } else {
-                // User is not authenticated, handle the error or show a message
-                console.log("User is not authenticated");
-                return state; // Return the current state
-            }
-        })();
+           
     }
 
 

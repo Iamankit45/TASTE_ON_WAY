@@ -81,17 +81,7 @@ const Cart = () => {
   return (
     <>
       <div className="cart-container">
-        <div className="cart-Heading">
-          <div className="cart-foodDetails">
-            <p> Food_Details </p> </div>
-          <div className="cart-foodQuantity">
-            <p> | Quantity </p></div>
-          <div className="cart-foodPrice">
-            <p> | Price</p> </div>
-          <div className="cart-TotalfoodPrice">
-            <p> | Total_Price</p> </div>
-        </div>
-        <hr />
+        
 
         <div className="cart-item">
           {cart.map((curElem) => {

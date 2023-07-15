@@ -1,4 +1,4 @@
-.SingleFoodPage{
+/* .SingleFoodPage{
     display: flex;
    flex-direction: row;
 }
@@ -17,39 +17,66 @@
     flex:60%;
     background-color: antiquewhite;
 }
+ */
 
 
-
-
-.cart-item{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 20px;
-}
-
-
-
-
-
-
-
-@media screen and (max-width: 768px) {
-    .cart-item {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-}
-
-.cart_heading{
-    background-color: #f1f1f1;
+.SingleFoodPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.cart-Image{
-    width: 12rem;
-    height: 12rem;
+  }
+  
+  .SingleFoodPage-brief {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .SingleFoodPage-photo img {
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     border-radius: 5px;
-}
-
+  }
+  
+  .SingleFoodPage-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .SingleFoodPage_name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .SingleFoodPage-category {
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 10px;
+  }
+  
+  .SingleFoodPage-cost {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .SingleFoodPage-restaurantname {
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 10px;
+  }
+  
+  .SingleFoodPage-addToCart {
+    margin-top: 20px;
+  }
+  
+  .SingleFoodPage-fullDescription {
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+  }
+  
