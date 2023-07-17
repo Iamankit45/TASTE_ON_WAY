@@ -42,7 +42,7 @@ const Login = () => {
       setLoggedIn(true);
 
 
-      navigate('/profile');
+      navigate('/profile',{ state: { user: data.data } });
     }
 
 

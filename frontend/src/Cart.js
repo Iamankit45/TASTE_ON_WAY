@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import CartItem from "./Components/CartItem";
 import { useCartContext, DbCartItem } from "./Context/cartContext";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 const Cart = () => {
-
 
   const navigate = useNavigate();
   const callCartPage = async () => {
@@ -13,16 +12,16 @@ const Cart = () => {
       const res = await fetch("http://localhost:8000/api/v1/users/profile", {
         method: 'GET',
         headers: {
-         
+
           Accept: 'application/json',
-         
+
           "Content-Type": 'application/json',
-          
-          
+
+
         },
-     
+
         credentials: "include",
-       
+
       });
 
 
@@ -33,7 +32,7 @@ const Cart = () => {
         throw error;
       }
     } catch (error) {
-     
+
       console.log(error);
       navigate("/login");
     }
@@ -44,7 +43,8 @@ const Cart = () => {
 
 
 
- 
+
+
 
   useEffect(() => {
     callCartPage();
@@ -56,12 +56,8 @@ const Cart = () => {
 
 
   const { cart, clearCart } = useCartContext();
-  
-  // if (cart.length === 0) {
-  //     return (
-  //         <div><p>no items in your cart</p></div>
-  //     )
-  // }
+
+
   console.log(cart);
 
   if (!cart) {
@@ -81,7 +77,7 @@ const Cart = () => {
   return (
     <>
       <div className="cart-container">
-        
+
 
         <div className="cart-item">
           {cart.map((curElem) => {
