@@ -54,7 +54,7 @@ const Profile = () => {
           <p>
             <strong>Phone No:</strong> {user.phone}
           </p>
-          {/* Display other user details as needed */}
+         
         </div>
       </div>
     ) : (
