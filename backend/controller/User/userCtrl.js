@@ -7,6 +7,7 @@ const appErr = require("../../utils/appErr");
 const generateToken = require("../../utils/generateToken");
 const getTokenFromHeader = require("../../utils/getTokenFromHeader");
 const { findById } = require("../../model/post/post");
+const { createSendToken } = require("../authController");
 
 const userProfileCtrl = async (req, res, next) => {
   // console.log(req.userAuth);
@@ -536,7 +537,46 @@ const userLogOutCtrl = async (req, res) => {
 
 }
 
+const userRegisterCtrl = async (req, res) => {
 
+  const { name, userName, email, password, phone } = req.body;
+
+  // console.log(name, userName);
+
+
+  try {
+    //checking if email is already exist
+    const userfound = await User.findOne({ email });
+    if (userfound) {
+      return (res.status(500).json({ status: "error" }));
+    }
+
+
+
+   
+    // hash password
+    // const salt = await bcrypt.genSalt(12);
+    // const hashedPassword = await bcrypt.hash(password, salt);
+
+    const user = await User.create({
+      name,
+      userName,
+
+      email,
+      password,
+      phone,
+      photo: req && req.file && req.file.path,
+    });
+
+    createSendToken(user,201,res);
+    // res.json({
+    //   status: "success",
+    //   data: user,
+    // });
+  } catch (error) {
+    console.error(error);
+  }
+}
 module.exports = {
   userProfileCtrl,
   usersCtrl,
@@ -555,5 +595,6 @@ module.exports = {
   BookmarkedPostCtrl,
   addToCartCtrl,
   getCartdataCtrl,
-  userLogOutCtrl
+  userLogOutCtrl,
+  userRegisterCtrl
 };

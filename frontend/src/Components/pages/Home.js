@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import SignUp from "./Components/SignUp"
 import "./home.css"
 import pic1 from "../img/burger.jpeg"
@@ -24,7 +24,7 @@ const Home = () => {
                         <h3>It's all here. All in one app.</h3>
                         <p1>Discover local, on-demand delivery or Pickup from restaurants, nearby grocery and convenience stores, and more.</p1>
                        
-                       <NavLink to ="./Signup"><button >SignUp</button></NavLink> 
+                       <Link to ="./Signup"><button >SignUp</button></Link> 
                     </div>
                     <div className="content2">
                     <img src={pic5} alt="Delivery"></img>

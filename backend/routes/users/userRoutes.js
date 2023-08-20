@@ -15,7 +15,7 @@ const {
   updatePasswordCtrl,
   userProfileByUserNameCtrl,
   BookmarkedPostCtrl,
-  addToCartCtrl,getCartdataCtrl,userLogOutCtrl
+  addToCartCtrl,getCartdataCtrl,userLogOutCtrl,userRegisterCtrl
 } = require("../../controller/user/userCtrl");
 
 
@@ -35,7 +35,7 @@ userRouter.patch("/reset/:token", resetPassword);
 userRouter.post("/checkPassAndUserID",checkPassAndUserID)
 userRouter.get("/renewAccessToken",renewAccessToken)
 userRouter.delete("/logOut", logOut);
-
+userRouter.post("/register",upload.single("image"), userRegisterCtrl);
 userRouter.use(protect);
 userRouter.patch("/updatePassword", updatePassword);
 

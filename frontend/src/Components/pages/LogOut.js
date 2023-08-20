@@ -36,7 +36,7 @@ const LogOut = () => {
              console.log("logging out");
                 // setLoggedIn(false);
                auth.logout();
-                navigate("/login")
+                navigate("/")
                 
             }
             else{

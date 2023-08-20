@@ -8,7 +8,7 @@ const foodReducer = (state, action) => {
 
     case "SET_API_DATA":
 
-
+      // console.log(action.payload)
       return {
         ...state,
         isLoading: false,

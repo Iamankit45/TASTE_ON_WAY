@@ -7,6 +7,7 @@ const AppError = require('./../utils/appError')
 const sendEmail = require('./../utils/email');
 const { LOADIPHLPAPI } = require('dns');
 const UserToken = require('./../model/user/userToken');
+const { log } = require('console');
 const verifyRefreshToken = ('./../utils/varifyRefreshToken');
 
 
@@ -16,10 +17,12 @@ const signToken = (id, secret, expireTime) => {
     });
 }
 
-const createSendToken = async (user, statusCode, res) => {
+exports.createSendToken = async (user, statusCode, res) => {
+    
     const accessToken = signToken(user._id, process.env.JWT_ACCESS_SECRET, process.env.JWT_ACCESS_EXPIRES_IN);
     const refreshToken = signToken(user._id, process.env.JWT_RFRESH_SECRET, process.env.JWT_REFRESH_EXPIRES_IN);
 
+    // console.log(accessToken);
     const userToken = await UserToken.findOne({ userId: user._id });
     if (userToken) await userToken.deleteOne({userId: user._id });
     await new UserToken({ userId: user._id, token: refreshToken }).save();
@@ -33,7 +36,7 @@ const createSendToken = async (user, statusCode, res) => {
 
     // if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
     
-    // res.cookie('jwt', refreshToken, { httpOnly: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
+    res.cookie('jwt', refreshToken, { httpOnly: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
     user.password = undefined;
     
     res.cookie('jwt', refreshToken, cookieOptions);
@@ -86,6 +89,9 @@ exports.renewAccessToken = catchAsync(async (req, res, next) => {
         accessToken: accessToken,
         profilePhoto: x.profilePhoto
     });
+
+
+    console.log("renew");
 });
 
 
@@ -183,7 +189,7 @@ exports.login = catchAsync(async (req, res, next) => {
     if (!user || !await user.correctPassword(password, user.password)) {
         return next(new AppError('Incorrect Email or Password 😔😔😔😔 !!', 401));
     }
-    createSendToken(user, 200, res);
+    this.createSendToken(user, 200, res);
 });
 
 
@@ -252,7 +258,7 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
     user.passwordResetExpires = undefined;
     await user.save();
 
-    createSendToken(user, 200, res);
+    this.createSendToken(user, 200, res);
 });
 
 exports.updatePassword = catchAsync(async (req, res, next) => {
@@ -269,6 +275,7 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
     user.confirmPassword = req.body.confirmPassword;
     await user.save();
 
-    createSendToken(user, 200, res);
+    this.createSendToken(user, 200, res);
 
 });
+

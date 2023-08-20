@@ -29,9 +29,7 @@ const Cart = () => {
   useEffect(() => {
 
     GetCartData();
-  }
-
-  )
+  },[])
 
   if (!cartArray) {
 

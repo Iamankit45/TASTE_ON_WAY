@@ -13,7 +13,7 @@ export default function Login() {
     const navigate = useNavigate();
     const auth = useAuth();                                 // to set user context
     const location = useLocation()
-    const redirectPath = location.state?.path || '/devlog'; // would be redirected to this path after successful submission
+    const redirectPath = location.state?.path || '/'; // would be redirected to this path after successful submission
     const [loading, setLoading] = useState(false);          // is for loading effect on top of submit button
     const [empty, setEmpty] = useState(false);              // is for giving warning
 
