@@ -3,9 +3,10 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 
 import axios from "axios";
 import reducer from "../Reducer/foodReducer";
-
+import useAxiosPrivate from "../components/hooks/useAxiosPrivate";
 
 const AppContext = createContext();
+
 
 const API = "http://localhost:8000/api/v1/food";
 
@@ -23,6 +24,8 @@ const initialState = {
 const AppProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
+ 
+
 
   const getFoods = async (url) => {
 
@@ -30,6 +33,8 @@ const AppProvider = ({ children }) => {
     try {
 
       const res = await axios.get(url);
+      // console.log("hii");
+      // console.log(res);
 
       const foodItems = await res.data.data;
       // foodItems=foodItems.data;

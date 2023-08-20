@@ -1,82 +1,38 @@
-/* .SingleFoodPage{
-    display: flex;
-   flex-direction: row;
+.App {
+  text-align: center;
 }
 
-.SingleFoodPage-info{
-    display: flex;
-    flex-direction: column;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
-.SingleFoodPage-brief{
-    flex:40%;
-    display: flex;
-    flex-direction: column;
-    background-color: aqua;
-}
-.SingleFoodPage-fullDescription{
-    flex:60%;
-    background-color: antiquewhite;
-}
- */
 
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
 
-.SingleFoodPage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
   }
-  
-  .SingleFoodPage-brief {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 20px;
+  to {
+    transform: rotate(360deg);
   }
-  
-  .SingleFoodPage-photo img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-  }
-  
-  .SingleFoodPage-info {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .SingleFoodPage_name {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .SingleFoodPage-category {
-    font-size: 16px;
-    color: #888;
-    margin-bottom: 10px;
-  }
-  
-  .SingleFoodPage-cost {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .SingleFoodPage-restaurantname {
-    font-size: 16px;
-    color: #888;
-    margin-bottom: 10px;
-  }
-  
-  .SingleFoodPage-addToCart {
-    margin-top: 20px;
-  }
-  
-  .SingleFoodPage-fullDescription {
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: justify;
-  }
-  
+}

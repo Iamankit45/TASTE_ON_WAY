@@ -3,14 +3,29 @@ import { NavLink, useNavigate } from "react-router-dom";
 const cartReducer = (state, action) => {
 
 
+
+
+    if (action.type === "GET_CART_DATA") {
+
+        let items = action.payload;
+
+        
+        console.log(items);
+        return {
+            ...state,
+           
+            cart: items,
+        };
+    }
     if (action.type === "ADD_TO_CART") {
 
+      
         let { amount, food } = action.payload;
         
-               
-
-                let existingProduct = state.cart.find((curItem) => curItem.id === food._id);
-
+                //  console.log("now from the reducer");
+                //  console.log(food);
+                 let existingProduct = state.cart.find((curItem) => curItem.id === food._id);
+                // console.log("after reducer");
                 if (existingProduct) {
                     let updatedProduct = state.cart.map((curElem) => {
                         if (curElem.id === food._id) {
@@ -18,6 +33,7 @@ const cartReducer = (state, action) => {
 
                             return {
                                 ...curElem,
+                               
                                 amount: newAmount,
                             };
                         } else {
@@ -46,6 +62,9 @@ const cartReducer = (state, action) => {
                 }
            
     }
+
+
+    
 
 
 
@@ -104,6 +123,7 @@ const cartReducer = (state, action) => {
     if (action.type === "SET_CART") {
         return {
             ...state,
+           
             cart: action.payload,
         };
 
@@ -118,6 +138,17 @@ const cartReducer = (state, action) => {
             cart: [],
         };
     }
+
+
+    if (action.type === "SET_LOADING") {
+        return {
+            ...state,
+            isLoading: true,
+        };
+    }
+
+
+    
     return state;
 
 }

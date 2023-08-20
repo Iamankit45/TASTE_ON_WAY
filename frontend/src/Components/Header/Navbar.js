@@ -4,16 +4,19 @@ import { NavLink } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import './navbar.css';
 import { CgMenu } from "react-icons/cg";
-import { useUserContext } from '../../Context/userContext';
+
+import {useAuth} from '../../context/Auth'
 
 const Navbar = () => {
-    const { loggedIn } = useUserContext()  //for toggle login logout
+  
     // const [menuIcon, setMenuIcon] = useState(false);
+    const auth = useAuth();
     const [showLinks, setShowLinks] = useState(false);
-    console.log(loggedIn);
-
+   
+// console.log(auth);
     const Rendermenu = () => {
-        if (loggedIn) {
+        // console.log(auth.user);
+        if (auth.user) {
             return (<>
                 <div className="navbar">
                     <div className="left-side">

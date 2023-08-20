@@ -1,56 +1,57 @@
 
-import React from "react";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-import Home from "./Home";
-import Login from "./Login";
-import Contact from "./Contact";
-import FoodZone from "./FoodZone";
-import Header  from "./Components/Header/Header";
-import Footer from "./Components/Footer/Footer";
-import SingleFoodData from "./SingleFoodData";
-import Cart from "./Cart";
-import Profile from "./Profile";
-import ErrorPage from "./ErrorPage";
-import SignUp from "./Components/SignUp"
-import LogOut from "./Components/LogOut";
-import { UserProvider } from "./Context/userContext";
-
-import "./App.css";
-const App = () => {
-
-
-
-
+import Profile from './components/Profile';
+import LinkPage from './components/LinkPage';
+import Editor from './components/Editor';
+import Home from './components/pages/Home';
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import Login from './components/Login';
+import { Routes, Route } from 'react-router-dom';
+import RequireAuth from './context/RequireAuth';
+import { AuthProvider } from './context/Auth';
+import PersistLogin from './components/PersistLogin';
+import { AppProvider } from "./context/foodContext";
+import { FilterContextProvider } from "./context/filterContext";
+import { CartProvider } from './context/cartContext';
+import './App.css';
+import FoodZone from './components/pages/FoodZone';
+import SingleFoodData from "./components/pages/SingleFoodData";
+import Cart from "./components/pages/Cart";
+import LogOut from './components/pages/LogOut';
+function App() {
   return (
 
-<UserProvider>
-    <Router>
-    <Header/>
-   
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/foodZone" element={<FoodZone/>} />
-        <Route path="/SingleFoodData/:id" element={<SingleFoodData/>} />
+
+    <AuthProvider>
+      <AppProvider>
+        <FilterContextProvider>
+        <CartProvider>
+          <Header />
+          <Routes>
 
 
-        <Route path="/cart" element={<Cart/>} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/linkpage" element={<LinkPage />} />
+            <Route path="/logout" element={<LogOut/>} />
+
+            <Route element={<PersistLogin />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/foodZone" element={<FoodZone />} />
+              <Route path="/SingleFoodData/:id" element={<SingleFoodData/>} />
+              <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />
+              <Route path="/cart" element={<RequireAuth><Cart/></RequireAuth>} />
+             
+              <Route path="/editor" element={<RequireAuth><Editor /></RequireAuth>} />
+            </Route>
+          </Routes>
+          <Footer />
+          </CartProvider>
+        </FilterContextProvider>
+      </AppProvider>
+    </AuthProvider>
 
 
-        <Route path="/Profile" element={<Profile/>} />
-
-        <Route path="/SignUp" element={<SignUp />} />
-        <Route path="/logout" element={<LogOut/>} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-      <Footer/>
-    </Router>
-    </UserProvider>
-
-  )
+  );
 }
 
 export default App;
