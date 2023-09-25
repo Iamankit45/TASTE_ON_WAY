@@ -15,19 +15,6 @@ const Razorpay = require('razorpay');
 
 app.use(credentials);
 
-// Allow requests from specific origins (replace with your actual frontend URL)
-const allowedOrigins = ['https://taste-on-way.netlify.app'];
-
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-};
-
 app.use(cors(corsOptions));
 // app.use(cors());
 app.use(cookieParser());
