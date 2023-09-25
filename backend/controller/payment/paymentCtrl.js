@@ -43,7 +43,7 @@ const paymentVerification = async (req, res) => {
   //       });
 
   res.redirect(
-    `https://taste-on-way.netlify.app/paymentsuccess`
+    `https://tasteonway.onrender.com/paymentsuccess`
   );
   // } else {
   //   res.status(400).json({
