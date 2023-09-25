@@ -44,40 +44,6 @@ const userProfileByUserNameCtrl = async (req, res, next) => {
   }
 };
 
-const whoViewedMyProfileCtrl = async (req, res, next) => {
-  try {
-    const user = await User.findById(req.params.id);
-
-    const userWhoViewed = await User.findById(req.userAuth);
-
-    //check if user and userwhoviewed are found
-
-    if (user && userWhoViewed) {
-      //check if user and userwhoviewed is already in the users viewers array
-      const isUserAlreadyViewed = user.viewers.find(
-        (viewer) => viewer.toString() === userWhoViewed._id.toString()
-      );
-
-      if (isUserAlreadyViewed) {
-        return next(appErr("you already viewed this profile"));
-      } else {
-        user.viewers.push(userWhoViewed._id);
-
-        await user.save();
-        res.json({
-          status: "success",
-          data: "you have successfully viewed this profile",
-        });
-      }
-    }
-  } catch (error) {
-    next(appErr(error.message));
-  }
-};
-
-
-
-
 
 //block
 
