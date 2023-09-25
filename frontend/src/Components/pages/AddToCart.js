@@ -30,7 +30,7 @@ const AddToCart = ({ food }) => {
             </div>
 
             <NavLink to="/cart" onClick={() => addToCart(amount,food)} >
-                <button>Order Now</button>
+                <button>Add To Cart</button>
             </NavLink>
           
 

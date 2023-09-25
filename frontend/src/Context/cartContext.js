@@ -31,7 +31,7 @@ const CartProvider = ({ children }) => {
         
             try {
                 const res = await PrivateApi.get("/users/profile/getCartData");
-                console.log(res.data.data)
+                // console.log(res.data.data)
                 CartData=res.data.data;
                 dispatch({ type: "GET_CART_DATA", payload: CartData })
                
@@ -79,7 +79,7 @@ const CartProvider = ({ children }) => {
         
             // console.log("hii from the cart ankit");
             const res=await PrivateApi.post("/users/addToCart",state.cart);
-            console.log(res.data.data);
+            // console.log(res.data.data);
         } catch (error) {
             
             console.log(error);
@@ -99,6 +99,7 @@ const CartProvider = ({ children }) => {
         if (state.cart.length > 0) {
             addedToCart();
         }
+        
     }, [state.cart]);
 
     return <CartContext.Provider value={{

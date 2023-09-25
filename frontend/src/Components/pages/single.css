@@ -1,0 +1,122 @@
+/* SingleFoodData.css */
+
+/* Style the container for the entire SingleFoodData component */
+.SingleFoodPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+    padding: 20px;
+  }
+  
+  /* Style the photo container */
+  .SingleFoodPage-photo {
+    max-width: 300px;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Style the food name */
+  .SingleFoodPage_name {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Style the food category */
+  .SingleFoodPage-category {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the food cost */
+  .SingleFoodPage-cost {
+    font-size: 30px;
+    font-weight: bold;
+    color: #e83e8c;
+  }
+  
+  /* Style the restaurant name */
+  .SingleFoodPage-restaurantname {
+    font-size: 18px;
+    color: #888;
+    margin-top: 10px;
+  }
+  
+  /* Style the Add to Cart container */
+  .SingleFoodPage-addToCart {
+    margin-top: 40px;
+  }
+  
+  /* Style the Add to Cart button */
+  .SingleFoodPage-addToCart button {
+    padding: 12px 30px;
+    background-color: #FBB517;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Style the Add to Cart button on hover */
+  .SingleFoodPage-addToCart button:hover {
+    background-color: #c4832d;
+  }
+  
+  /* Center the Add to Cart button */
+  .SingleFoodPage-addToCart button {
+    /* display: block; */
+    margin: 10;
+    margin-bottom: 10px;
+  }
+  
+
+
+  /*payment success css*/
+
+  /* PaymentSuccess.css */
+
+/* Center the content vertically and horizontally */
+.PaymentSuccess {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+  }
+  
+  /* Style the success message */
+  .PaymentSuccess-message {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    color: #007bff; /* Classy blue color */
+    margin-bottom: 20px;
+  }
+  
+  /* Style a decorative underline */
+  .PaymentSuccess-underline {
+    width: 100px;
+    height: 4px;
+    background-color: #007bff; /* Classy blue color */
+    margin-bottom: 40px;
+  }
+  
+  /* Style the continue shopping link */
+  .PaymentSuccess-link {
+    font-size: 20px;
+    text-decoration: none;
+    color: #007bff; /* Classy blue color */
+    transition: color 0.3s ease;
+  }
+  
+  /* Style the continue shopping link on hover */
+  .PaymentSuccess-link:hover {
+    color: #0056b3; /* Darker blue color on hover */
+  }
+  

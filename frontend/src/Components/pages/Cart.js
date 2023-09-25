@@ -9,38 +9,39 @@ const Cart = () => {
     
   const [cartArray, setArray] = useState([]);
 
-
-
+  
+ console.log(cart);
   const PrivateApi = useAxiosPrivate();
-  const GetCartData = async () => {
+  // const GetCartData = async () => {
 
-    let CartData;
-
-
-    try {
-      const res = await PrivateApi.get("/users/profile/getCartData");
-      console.log(res.data.data)
-      CartData = res.data.data;
-      setArray(CartData);
-
-    }
-    catch (err) {
-      console.log(err)
-    }
+  //   let CartData;
 
 
+  //   try {
+  //     const res = await PrivateApi.get("/users/profile/getCartData");
+  //     console.log(res.data.data)
+  //     // CartData = res.data.data;
+  //     // cart=CartData;
+  //     setArray(res.data.data);
 
-  }
+  //   }
+  //   catch (err) {
+  //     console.log(err)
+  //   }
 
 
-  useEffect(() => {
 
-    GetCartData();
+  // }
+
+
+  // useEffect(() => {
+
+  //   GetCartData();
    
-  }, [cart])
+  // }, [cart])
     
 
-  if (!cartArray) {
+  if (!cart) {
 
 
     return <>
@@ -48,7 +49,7 @@ const Cart = () => {
     </>
   }
 
-  if (cartArray.length === 0) {
+  if (cart.length === 0) {
     return <div>Your cart is empty</div>;
   }
 
@@ -60,8 +61,8 @@ const Cart = () => {
 
 
         <div className="cart-item">
-          {cartArray.map((curElem) => {
-            return <CartItem key={curElem.id} {...curElem} />;
+          {cart.map((curElem) => {
+            return <CartItem key={curElem.id}{...curElem} />;
           })}
         </div>
         <div>

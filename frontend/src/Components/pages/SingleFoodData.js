@@ -3,7 +3,7 @@ import { NavLink, useParams } from "react-router-dom";
 import { useFoodContext } from '../../context/foodContext';
 import { FaMinus, FaPlus } from "react-icons/fa";
 import AddToCart from "./AddToCart";
-
+import "./single.css";
 const API = "http://localhost:8000/api/v1/food/";
 
 const SingleFoodData = () => {
@@ -64,12 +64,7 @@ const SingleFoodData = () => {
                         </div>
                     </div>
                 </div>
-                <div className="SingleFoodPage-fullDescription">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cons
-                    equuntur recusandae corrupti ullam quaerat sequi omnis exercitationem quis aliquid, ducimus
-                    , iste suscipit ratione. Et, aperiam illum! Ea porro quibusdam nostrum?
-
-                </div>
+                
             </div>
 
 
