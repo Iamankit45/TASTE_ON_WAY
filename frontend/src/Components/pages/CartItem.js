@@ -48,6 +48,7 @@ const CartItem = ({ id, name, photo, cost, amount, restaurant_name }) => {
         // console.log(options);
         // console.log(razor);
         razor.open();
+        removeItem(id);
     }
 
 

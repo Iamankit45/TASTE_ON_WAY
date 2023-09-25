@@ -33,7 +33,7 @@ const createFoodCtrl = async (req, res, next) => {
 const getFoodctrl = async (req, res) => {
 
     const foodData = await Food.find({});
-
+    // console.log(foodData);
     let FoodData = [];
 
     foodData.map((obj) => {
