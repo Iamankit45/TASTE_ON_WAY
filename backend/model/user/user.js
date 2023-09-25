@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Post = require("../post/post");
+
 // const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
@@ -29,46 +29,15 @@ const userSchema = new mongoose.Schema(
       required: [true, "Password is required"],
       select: false
     },
-    followers: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-      },
-    ],
-    following: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-      },
-    ],
-    posts: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Post",
-      },
-    ],
-    comments: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Comment",
-      },
-    ],
+    
+    
+    
     phone:{
       type:String
     },
-    like:[
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Post",
-      }
-    ],
+    
     cart:[],
-    // bookmarks:[
-    //   {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: "Post"
-    //   }
-    // ],
+    
     userAward: {
       type: String,
       enum: ["Bronze", "Silver", "Gold"],
@@ -85,11 +54,7 @@ const userSchema = new mongoose.Schema(
     },
 
 
-    Bookmarked_Post: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Post"
-    }]
+    
 
   },
   {
@@ -98,18 +63,12 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-userSchema.virtual("post-count").get(function () {
-  return this.posts.length;
-});
-
-userSchema.virtual("followers-count").get(function () {
-  return this.followers.length;
-});
 
 
-userSchema.virtual("following-count").get(function () {
-  return this.following.length;
-});
+
+
+
+
 
 userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) return next();

@@ -7,14 +7,13 @@ const {
   deleteUserAccountCtrl,
   updateUserCtrl,
   profilePhotoUploadCtrl, 
-  whoViewedMyProfileCtrl,
-  followingCtrl,
-  unFollowCtrl,
+  
+  
   adminBlockUsersCtrl,
   adminUnBlockUsersCtrl,
   updatePasswordCtrl,
   userProfileByUserNameCtrl,
-  BookmarkedPostCtrl,
+ 
   addToCartCtrl,getCartdataCtrl,userLogOutCtrl,userRegisterCtrl
 } = require("../../controller/user/userCtrl");
 
@@ -46,18 +45,9 @@ userRouter.get("/profile/",userProfileCtrl);
 userRouter.post("/addToCart",addToCartCtrl);
 userRouter.get("/profile/getCartData",getCartdataCtrl);
 userRouter.get("/profileByName/:id",userProfileByUserNameCtrl);
-userRouter.get("/profile-viewers/:id",whoViewedMyProfileCtrl);
 
-//GET/api/v1/users/following/:id
-userRouter.get("/following/:id",followingCtrl);
-userRouter.get("/unfollowing/:id",unFollowCtrl);
 
-userRouter.get("/bookmarkedPost",BookmarkedPostCtrl)
-//GET/api/v1/users/blocked/:id
-// userRouter.get("/block/:id",blockUsersCtrl);
 
-//GET/api/v1/users/unblock/:id
-// userRouter.get("/unblock/:id",unblockUserCtrl);
 
 
 //Delete/api/v1/users/delete-account
