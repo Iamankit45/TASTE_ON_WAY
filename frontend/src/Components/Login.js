@@ -102,6 +102,7 @@ export default function Login() {
     }
 
     return (
+      
         <div className='loginPage'>
             <h3 className='loginName'>Taste on <span className='ex'>Way</span></h3>
             <h4 className='loginName'>Sign In<hr /></h4>
@@ -131,6 +132,7 @@ export default function Login() {
 
             </form>
         </div>
+        
     )
 
 }
