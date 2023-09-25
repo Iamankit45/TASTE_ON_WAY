@@ -1,26 +1,26 @@
 
-import Profile from './components/Profile';
-import LinkPage from './components/LinkPage';
-import Editor from './components/Editor';
-import Home from './components/pages/Home';
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import Login from './components/Login';
+import Profile from './Components/Profile';
+import LinkPage from './Components/LinkPage';
+import Editor from './Components/Editor';
+import Home from './Components/pages/Home';
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
+import Login from './Components/Login';
 import { Routes, Route } from 'react-router-dom';
 import RequireAuth from './context/RequireAuth';
 import { AuthProvider } from './context/Auth';
-import PersistLogin from './components/PersistLogin';
+import PersistLogin from './Components/PersistLogin';
 import { AppProvider } from "./context/foodContext";
 import { FilterContextProvider } from "./context/filterContext";
 import { CartProvider } from './context/cartContext';
 import './App.css';
-import FoodZone from './components/pages/FoodZone';
-import SingleFoodData from "./components/pages/SingleFoodData";
-import Cart from "./components/pages/Cart";
-import LogOut from './components/pages/LogOut';
-import SignUp from './components/pages/Signup';
-import Contact from "./components/pages/Contact";
-import PaymentSuccess from './components/pages/PaymentSuccess';
+import FoodZone from './Components/pages/FoodZone';
+import SingleFoodData from "./Components/pages/SingleFoodData";
+import Cart from "./Components/pages/Cart";
+import LogOut from './Components/pages/LogOut';
+import SignUp from './Components/pages/Signup';
+import Contact from "./Components/pages/Contact";
+import PaymentSuccess from './Components/pages/PaymentSuccess';
 function App() {
   return (
 

@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
 import reducer from ".././Reducer/cartReducer";
 import { NavLink, useNavigate } from "react-router-dom";
-import useAxiosPrivate from "../components/hooks/useAxiosPrivate";
+import useAxiosPrivate from "../Components/hooks/useAxiosPrivate";
 
 const CartContext = createContext();
 
