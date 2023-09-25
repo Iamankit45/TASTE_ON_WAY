@@ -4,11 +4,11 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 import axios from "axios";
 import reducer from "../Reducer/foodReducer";
 import useAxiosPrivate from "../components/hooks/useAxiosPrivate";
-
+import { BASE_URL } from "../services/helper";
 const AppContext = createContext();
 
 
-const API = "http://localhost:8000/api/v1/food";
+const API = `${BASE_URL}/api/v1/food`;
 
 
 const initialState = {

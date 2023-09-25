@@ -4,7 +4,9 @@ import { useFoodContext } from '../../context/foodContext';
 import { FaMinus, FaPlus } from "react-icons/fa";
 import AddToCart from "./AddToCart";
 import "./single.css";
-const API = "http://localhost:8000/api/v1/food/";
+import { BASE_URL } from "../../services/helper";
+
+const API = `${BASE_URL}/api/v1/food/`;
 
 const SingleFoodData = () => {
 

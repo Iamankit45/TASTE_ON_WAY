@@ -6,6 +6,7 @@ import "./cartItem.css";
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect } from 'react';
+import { BASE_URL } from '../../services/helper';
 // import { checkOut } from '../../../../backend/controller/payment/paymentCtrl';
 // import PaymentPage from './Payment';
 
@@ -17,8 +18,8 @@ const CartItem = ({ id, name, photo, cost, amount, restaurant_name }) => {
 
 
     const checkOutHandler = async (TotalAmount) => {
-        const { data: { key } } = await axios.get("http://www.localhost:8000/api/v1/getkey")
-        const { data: { order } } = await axios.post("http://localhost:8000/api/v1/payment/checkout", { TotalAmount })
+        const { data: { key } } = await axios.get(`${BASE_URL}/api/v1/getkey`)
+        const { data: { order } } = await axios.post(`${BASE_URL}/api/v1/payment/checkout`, { TotalAmount })
         // console.log(key,order);
 
         // console.log(order);
@@ -30,7 +31,7 @@ const CartItem = ({ id, name, photo, cost, amount, restaurant_name }) => {
             description: "payment for food ordering",
             image: "https://avatars.githubusercontent.com/u/25058652?v=4",
             order_id: order.id,
-            callback_url: "http://localhost:8000/api/v1/payment/paymentVerification",
+            callback_url: `${BASE_URL}/api/v1/payment/paymentVerification`,
             prefill: {
                 name: "Ankit kumar",
                 email: "Ankit.kumar@example.com",

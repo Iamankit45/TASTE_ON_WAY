@@ -1,5 +1,8 @@
 import axios from 'axios';
-const BaseUrl = "http://localhost:8000/api/v1"
+import { BASE_URL } from '../services/helper';
+
+// /Users/ANKIT KUMAR/Desktop/Taste_on_way/frontend/src/api/axios.js
+const BaseUrl = `${BASE_URL}/api/v1`
 
 export const API = axios.create({baseURL: BaseUrl});
 

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from '../../context/Auth';
-
+import { BASE_URL } from '../../services/helper';
 
 const LogOut = () => {
 
@@ -15,7 +15,7 @@ const LogOut = () => {
     useEffect(() => {
 
 
-        fetch("http://localhost:8000/api/v1/users/logOut", {
+        fetch(`${BASE_URL}/api/v1/users/logOut`, {
 
             method: 'GET',
             headers: {

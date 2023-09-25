@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink ,useNavigate} from "react-router-dom";
 import "./signup.css";
+import { BASE_URL } from '../../services/helper';
 
 const SignUp = () => {
 const navigate = useNavigate();
@@ -26,7 +27,7 @@ const navigate = useNavigate();
         const { name, userName, password, email, phone } = user;
 
 
-        const res = await fetch("http://localhost:8000/api/v1/users/register", {
+        const res = await fetch(`${BASE_URL}/api/v1/users/register`, {
 
             method: "POST",
             headers: {
@@ -44,7 +45,7 @@ const navigate = useNavigate();
 
         if (res.status===500||!data){
             window.alert("Invalid");
-            console.log("inavlid registration");
+            console.log("invalid registration");
 
 
         }else{
