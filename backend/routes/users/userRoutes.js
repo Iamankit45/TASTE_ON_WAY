@@ -47,7 +47,13 @@ userRouter.get("/profile/getCartData",getCartdataCtrl);
 userRouter.get("/profileByName/:id",userProfileByUserNameCtrl);
 
 
+//GET/api/v1/users/following/:id
 
+//GET/api/v1/users/blocked/:id
+// userRouter.get("/block/:id",blockUsersCtrl);
+
+//GET/api/v1/users/unblock/:id
+// userRouter.get("/unblock/:id",unblockUserCtrl);
 
 
 //Delete/api/v1/users/delete-account
