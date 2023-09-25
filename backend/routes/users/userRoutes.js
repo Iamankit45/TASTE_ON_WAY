@@ -15,7 +15,7 @@ const {
   userProfileByUserNameCtrl,
 
   addToCartCtrl, getCartdataCtrl, userLogOutCtrl, userRegisterCtrl
-} = require("../../controller/user/userCtrl.js");
+} = require("../../controller/User/userCtrl.js");
 
 
 const isAdmin = require("../../middlewares/isAdmin");
