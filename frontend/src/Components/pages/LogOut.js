@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import { NavLink, useNavigate } from "react-router-dom";
-import { useAuth } from '../../context/Auth';
+import { useAuth } from '../../Context/Auth';
 import { BASE_URL } from '../../services/helper';
 
 const LogOut = () => {
 
 
-    const auth = useAuth();  
+    const auth = useAuth();
 
 
     // const {setLoggedIn} = useUserContext();
@@ -33,13 +33,13 @@ const LogOut = () => {
             console.log(res);
 
             if (res.status == 200) {
-             console.log("logging out");
+                console.log("logging out");
                 // setLoggedIn(false);
-               auth.logout();
+                auth.logout();
                 navigate("/")
-                
+
             }
-            else{
+            else {
                 const error = new Error(res.error);
                 throw error;
             }

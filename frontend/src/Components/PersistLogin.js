@@ -1,36 +1,36 @@
 import { Outlet } from "react-router-dom"
 import { useState, useEffect } from "react"
 import useRefreshToken from './hooks/useRefreshToken'
-import { useAuth } from "../context/Auth"
+import { useAuth } from "../Context/Auth"
 
 
 function PersistLogin() {
-    
-    const [isLoading, setLoading] = useState(true);
-    const refresh = useRefreshToken();
-    const {user} = useAuth();
 
-    useEffect(()=>{
+  const [isLoading, setLoading] = useState(true);
+  const refresh = useRefreshToken();
+  const { user } = useAuth();
 
-        async function verifyRefreshToken(){
-            try{
-                await refresh();
-            }
-            catch(error){
-                console.log(error);
-            }
-            finally{
-                setLoading(false);
-            }
-        }
+  useEffect(() => {
 
-        !user?.accessToken ? verifyRefreshToken() : setLoading(false);
+    async function verifyRefreshToken() {
+      try {
+        await refresh();
+      }
+      catch (error) {
+        console.log(error);
+      }
+      finally {
+        setLoading(false);
+      }
+    }
 
-    },[])
+    !user?.accessToken ? verifyRefreshToken() : setLoading(false);
+
+  }, [])
 
   return (
     <div>
-      {isLoading ? <p>Loading</p> : <Outlet/>}
+      {isLoading ? <p>Loading</p> : <Outlet />}
     </div>
   )
 }

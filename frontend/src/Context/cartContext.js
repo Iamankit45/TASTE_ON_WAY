@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
-import reducer from ".././Reducer/cartReducer";
+import reducer from "../Reducer/cartReducer";
 import { NavLink, useNavigate } from "react-router-dom";
 import useAxiosPrivate from "../Components/hooks/useAxiosPrivate";
 
@@ -7,13 +7,13 @@ const CartContext = createContext();
 
 
 const initialState = {
-   
-   
-    cart:[],
+
+
+    cart: [],
     total_item: "",
     total_price: "",
     shipping_fee: 50,
-   
+
 };
 
 
@@ -21,26 +21,26 @@ const CartProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(reducer, initialState)
     const PrivateApi = useAxiosPrivate();
-    
 
 
-    const GetCartData = async() => {
+
+    const GetCartData = async () => {
 
         let CartData;
 
-        
-            try {
-                const res = await PrivateApi.get("/users/profile/getCartData");
-                // console.log(res.data.data)
-                CartData=res.data.data;
-                dispatch({ type: "GET_CART_DATA", payload: CartData })
-               
-            } catch (error) {
-                console.log(error);
-            } 
-          
-        
-    
+
+        try {
+            const res = await PrivateApi.get("/users/profile/getCartData");
+            // console.log(res.data.data)
+            CartData = res.data.data;
+            dispatch({ type: "GET_CART_DATA", payload: CartData })
+
+        } catch (error) {
+            console.log(error);
+        }
+
+
+
     }
     const addToCart = (amount, food) => {
 
@@ -71,27 +71,27 @@ const CartProvider = ({ children }) => {
     };
 
 
-    const addedToCart= async()=>{
+    const addedToCart = async () => {
 
-      
+
         try {
-           
-        
+
+
             // console.log("hii from the cart ankit");
-            const res=await PrivateApi.post("/users/addToCart",state.cart);
+            const res = await PrivateApi.post("/users/addToCart", state.cart);
             // console.log(res.data.data);
         } catch (error) {
-            
+
             console.log(error);
         }
     }
 
 
     useEffect(() => {
-      
-       GetCartData()
-      
-    },[]);
+
+        GetCartData()
+
+    }, []);
 
 
     useEffect(() => {
@@ -99,12 +99,12 @@ const CartProvider = ({ children }) => {
         if (state.cart.length > 0) {
             addedToCart();
         }
-        
+
     }, [state.cart]);
 
     return <CartContext.Provider value={{
         ...state, addToCart, clearCart, removeItem, setDecrease,
-        setIncrement,GetCartData
+        setIncrement, GetCartData
     }}>{children}</CartContext.Provider>
 }
 

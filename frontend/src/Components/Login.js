@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, } from 'react';
-import { useAuth } from '../context/Auth';
+import { useAuth } from '../Context/Auth';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import "./login.css";
 import * as api from '../api/axios';
@@ -58,7 +58,7 @@ export default function Login() {
             e.preventDefault();
 
 
-            let cond1 = checkMandatory();    
+            let cond1 = checkMandatory();
             if (cond1) {
 
                 setLoading(true);
@@ -75,7 +75,7 @@ export default function Login() {
 
                     navigate(redirectPath, { replace: true });
 
-                    
+
                 }
             }
             else {
@@ -87,7 +87,7 @@ export default function Login() {
             if (!err?.response) {
                 console.log("No server response");
                 setLoading(false);
-               
+
 
             }
             else if (err.response.status === 401) {
@@ -102,7 +102,7 @@ export default function Login() {
     }
 
     return (
-      
+
         <div className='loginPage'>
             <h3 className='loginName'>Taste on <span className='ex'>Way</span></h3>
             <h4 className='loginName'>Sign In<hr /></h4>
@@ -117,14 +117,14 @@ export default function Login() {
                     <input id='emailInput' placeholder='Email Address*' name="email" className='box boxDown' type="email" onChange={handleChange} />
                     <input placeholder='Password*' name="password" className='box boxDown' type="password" onChange={handleChange} />
                 </div>
-                
+
                 <button type='Submit' disabled={loading} className='submitButton'>
 
-                    {loading ? ( <img className='spinner' src={require("./img/spinner6.gif")}/>)
-                    :
-                    <>Submit</>
+                    {loading ? (<img className='spinner' src={require("./img/spinner6.gif")} />)
+                        :
+                        <>Submit</>
                     }
-                   
+
                 </button>
 
 
@@ -132,7 +132,7 @@ export default function Login() {
 
             </form>
         </div>
-        
+
     )
 
 }

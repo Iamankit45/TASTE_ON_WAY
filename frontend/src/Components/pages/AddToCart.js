@@ -2,14 +2,14 @@
 import { useState } from "react";
 import { NavLink } from 'react-router-dom';
 import { FaMinus, FaPlus } from "react-icons/fa";
-import { useCartContext } from "../../context/cartContext";
+import { useCartContext } from "../../Context/cartContext";
 
 const AddToCart = ({ food }) => {
 
 
     const [amount, setAmount] = useState(1);
 
-    const {addToCart} = useCartContext();
+    const { addToCart } = useCartContext();
     const { _id, cost, name, restaurant_name, photo } = food;
     // console.log(food);
     const setDecrease = () => {
@@ -29,10 +29,10 @@ const AddToCart = ({ food }) => {
                 <button onClick={() => setIncrease()}> <FaPlus /></button>
             </div>
 
-            <NavLink to="/cart" onClick={() => addToCart(amount,food)} >
+            <NavLink to="/cart" onClick={() => addToCart(amount, food)} >
                 <button>Add To Cart</button>
             </NavLink>
-          
+
 
         </>
     )

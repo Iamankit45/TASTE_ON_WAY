@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import CartItem from "./CartItem";
-import { useCartContext, DbCartItem } from "../../context/cartContext";
+import { useCartContext, DbCartItem } from "../../Context/cartContext";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import useAxiosPrivate from '../hooks/useAxiosPrivate';
 const Cart = () => {
 
-  const { cart, clearCart,setDecrease,setIncrement } = useCartContext();
-    
+  const { cart, clearCart, setDecrease, setIncrement } = useCartContext();
+
   const [cartArray, setArray] = useState([]);
 
-  
- console.log(cart);
+
+  console.log(cart);
   const PrivateApi = useAxiosPrivate();
   // const GetCartData = async () => {
 
@@ -37,9 +37,9 @@ const Cart = () => {
   // useEffect(() => {
 
   //   GetCartData();
-   
+
   // }, [cart])
-    
+
 
   if (!cart) {
 

@@ -5,15 +5,15 @@ import { FaUser } from "react-icons/fa";
 import './navbar.css';
 import { CgMenu } from "react-icons/cg";
 import pic1 from "../img/LOGO.jpg"
-import {useAuth} from '../../context/Auth'
+import { useAuth } from '../../Context/Auth'
 
 const Navbar = () => {
-  
+
     // const [menuIcon, setMenuIcon] = useState(false);
     const auth = useAuth();
     const [showLinks, setShowLinks] = useState(false);
-   
-// console.log(auth);
+
+    // console.log(auth);
     const Rendermenu = () => {
         // console.log(auth.user);
         if (auth.user) {

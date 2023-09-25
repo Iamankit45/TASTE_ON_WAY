@@ -1,6 +1,6 @@
 import React from 'react'
 import CartAmountToggle from "./CartAmountToggle";
-import { useCartContext } from "../../context/cartContext";
+import { useCartContext } from "../../Context/cartContext";
 import { FaTrash } from "react-icons/fa";
 import "./cartItem.css";
 import { NavLink } from 'react-router-dom';
@@ -13,7 +13,7 @@ import { BASE_URL } from '../../services/helper';
 const CartItem = ({ id, name, photo, cost, amount, restaurant_name }) => {
     // console.log(id, name, photo ,cost, amount);
     const { removeItem, setDecrease, setIncrement } = useCartContext();
-       
+
 
 
 
@@ -54,7 +54,7 @@ const CartItem = ({ id, name, photo, cost, amount, restaurant_name }) => {
 
 
 
-    
+
 
 
 

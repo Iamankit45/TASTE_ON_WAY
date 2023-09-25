@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
-import { useFoodContext } from '../../context/foodContext';
+import { useFoodContext } from '../../Context/foodContext';
 import { FaMinus, FaPlus } from "react-icons/fa";
 import AddToCart from "./AddToCart";
 import "./single.css";
@@ -55,18 +55,18 @@ const SingleFoodData = () => {
 
                         <div className="SingleFoodPage-addToCart">
 
-                        <AddToCart food ={singleFood}/>
-                         
-                           
+                            <AddToCart food={singleFood} />
+
+
                         </div>
 
 
                         <div className="SingleFoodPage-orderNow">
-                      
+
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
 
