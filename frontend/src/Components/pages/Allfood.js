@@ -10,9 +10,7 @@ const Allfood = () => {
 
   const { isLoading, foodItems } = useFoodContext();
   const{filter_Foods}=useFilterContext();
-console.log(foodItems);
-  console.log(isLoading);
-  console.log("hiii");
+  
   if (isLoading) {
     return <div>Loading...</div>
   }

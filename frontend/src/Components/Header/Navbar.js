@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import './navbar.css';
 import { CgMenu } from "react-icons/cg";
-
+import pic1 from "../img/LOGO.jpg"
 import {useAuth} from '../../context/Auth'
 
 const Navbar = () => {
@@ -22,7 +22,7 @@ const Navbar = () => {
                     <div className="left-side">
                         <div className="Logo"></div>
                         <NavLink to="/">
-                            <img src="./images/logo1.png" className="logo" alt="logo"></img>
+                            <img src={pic1} className="logo" alt="logo"></img>
                         </NavLink>
                     </div>
                     <div className="right-side">
@@ -47,7 +47,7 @@ const Navbar = () => {
                     <div className="left-side">
                         <div className="Logo"></div>
                         <NavLink to="/">
-                            <img src="./images/logo1.png" className="logo" alt="logo"></img>
+                            <img src={pic1} className="logo" alt="logo"></img>
                         </NavLink>
                     </div>
                     <div className="right-side">

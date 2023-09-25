@@ -15,7 +15,7 @@ const Footer = () => {
           <NavLink to="/contact"><button >Contact us</button></NavLink>
         </div>
         <div className="footer-col2">
-          <p>Ankit Foodie</p>
+          <p>Taste On Way</p>
           <ul className='footer-links'>
             <li>
               <NavLink to="#" className="foot-links">Our Markets</NavLink>

@@ -77,7 +77,7 @@ const CartProvider = ({ children }) => {
         try {
            
         
-            console.log("hii from the cart ankit");
+            // console.log("hii from the cart ankit");
             const res=await PrivateApi.post("/users/addToCart",state.cart);
             console.log(res.data.data);
         } catch (error) {
@@ -89,11 +89,8 @@ const CartProvider = ({ children }) => {
 
     useEffect(() => {
       
-       GetCartData ()
-       
-
-       
-    
+       GetCartData()
+      
     },[]);
 
 
@@ -106,7 +103,7 @@ const CartProvider = ({ children }) => {
 
     return <CartContext.Provider value={{
         ...state, addToCart, clearCart, removeItem, setDecrease,
-        setIncrement,
+        setIncrement,GetCartData
     }}>{children}</CartContext.Provider>
 }
 

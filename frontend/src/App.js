@@ -19,6 +19,7 @@ import SingleFoodData from "./components/pages/SingleFoodData";
 import Cart from "./components/pages/Cart";
 import LogOut from './components/pages/LogOut';
 import SignUp from './components/pages/Signup';
+import Contact from "./components/pages/Contact";
 import PaymentSuccess from './components/pages/PaymentSuccess';
 function App() {
   return (
@@ -36,10 +37,12 @@ function App() {
             <Route path="/linkpage" element={<LinkPage />} />
             <Route path="/logout" element={<LogOut/>} />
            <Route path ="/signup" element={<SignUp/>}/>
+      
            <Route path ="/PaymentSuccess" element={<PaymentSuccess/>}/>
             <Route element={<PersistLogin />}>
            
             <Route path="/" element={<Home />} />
+            <Route path ="/Contact" element={<Contact/>} />
               <Route path="/foodZone" element={<FoodZone />} />
               <Route path="/SingleFoodData/:id" element={<SingleFoodData/>} />
               <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />

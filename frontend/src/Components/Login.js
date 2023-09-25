@@ -127,7 +127,7 @@ export default function Login() {
                 </button>
 
 
-                <div className='lastDiv'>Don't have an account ? &nbsp; Sign Up <Link className='here' to='/devlog/signup'>Here</Link></div>
+                <div className='lastDiv'>Don't have an account ? &nbsp; Sign Up <Link className='here' to='/Signup'>Here</Link></div>
 
             </form>
         </div>

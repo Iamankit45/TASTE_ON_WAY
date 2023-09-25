@@ -7,7 +7,7 @@ const  crypto =require('crypto');
 
 const checkOut = async (req, res) => {
     const options = {
-        amount: Number(req.body.TotalAmount),
+        amount: Number(req.body.TotalAmount*100),
         currency: "INR"
     };
 

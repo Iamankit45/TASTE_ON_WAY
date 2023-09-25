@@ -5,31 +5,40 @@ import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import useAxiosPrivate from '../hooks/useAxiosPrivate';
 const Cart = () => {
 
+  const { cart, clearCart,setDecrease,setIncrement } = useCartContext();
+    
+  const [cartArray, setArray] = useState([]);
 
-  const[cartArray, setArray] = useState([]);
-  const { cart, clearCart } = useCartContext();
+
+
   const PrivateApi = useAxiosPrivate();
-  const GetCartData = async() => {
+  const GetCartData = async () => {
 
     let CartData;
 
-    
-        try {
-            const res = await PrivateApi.get("/users/profile/getCartData");
-            console.log(res.data.data)
-            CartData=res.data.data;
-            setArray(CartData);
-        }
-        catch(err){
-          console.log(err)
-        }
-      }
-  // console.log(cart);
+
+    try {
+      const res = await PrivateApi.get("/users/profile/getCartData");
+      console.log(res.data.data)
+      CartData = res.data.data;
+      setArray(CartData);
+
+    }
+    catch (err) {
+      console.log(err)
+    }
+
+
+
+  }
+
 
   useEffect(() => {
 
     GetCartData();
-  },[])
+   
+  }, [cart])
+    
 
   if (!cartArray) {
 

@@ -10,7 +10,7 @@ const cartReducer = (state, action) => {
         let items = action.payload;
 
         
-        console.log(items);
+        // console.log(items);
         return {
             ...state,
            

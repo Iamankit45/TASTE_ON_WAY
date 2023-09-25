@@ -5,13 +5,14 @@ import { FaTrash } from "react-icons/fa";
 import "./cartItem.css";
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
+import { useEffect } from 'react';
 // import { checkOut } from '../../../../backend/controller/payment/paymentCtrl';
 // import PaymentPage from './Payment';
 
 const CartItem = ({ id, name, photo, cost, amount, restaurant_name }) => {
     // console.log(id, name, photo ,cost, amount);
-    const { removeItem, setDecrease,
-        setIncrement } = useCartContext();
+    const { removeItem, setDecrease, setIncrement } = useCartContext();
+       
 
 
 
@@ -51,7 +52,7 @@ const CartItem = ({ id, name, photo, cost, amount, restaurant_name }) => {
 
 
 
-
+    
 
 
 
