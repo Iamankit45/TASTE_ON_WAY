@@ -13,6 +13,7 @@ const port = process.env.PORT || 8000;
 
 const Razorpay = require('razorpay');
 
+app.set("trust proxy", 1);
 app.use(credentials);
 
 app.use(cors(corsOptions));

@@ -38,9 +38,9 @@ function App() {
               <Route path="/logout" element={<LogOut />} />
               <Route path="/signup" element={<SignUp />} />
 
-              <Route path="/PaymentSuccess" element={<PaymentSuccess />} />
+              
               <Route element={<PersistLogin />}>
-
+              <Route path="/PaymentSuccess" element={<PaymentSuccess />} />
                 <Route path="/" element={<Home />} />
                 <Route path="/Contact" element={<Contact />} />
                 <Route path="/foodZone" element={<FoodZone />} />
