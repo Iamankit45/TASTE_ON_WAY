@@ -1,111 +1,156 @@
 
 
-.loginPage{
+/* Base styles for all screen sizes */
+.loginPage {
     margin: 0 auto;
     margin-top: 8vh;
     border-radius: 5px;
-    width: 430px;
+    max-width: 430px;
+    width: 100%;
     -webkit-box-shadow: 0 0 2px grey;
     box-shadow: 0 0 2px grey;
     padding: 15px 30px;
     text-align: center;
     background-color: #f7dfa7;
     position: relative;
-    /* height: 250px; */
     margin-bottom: 50px;
-}
-
-.loginName{
-	font-size: 20px;
-	font-family: monospace;
-	/* background-color: #ffecb5 ; */
-	font-weight: 600;
-	width: fit-content;
-	margin: 10px auto;
-	/* padding: 5px 10px; */
-}
-
-/* .loginWithGoogle{
-    position: relative;
-    top: 5px;
+  }
+  
+  .loginName {
+    font-size: 24px;
+    font-family: monospace;
+    font-weight: 600;
     width: fit-content;
     margin: 10px auto;
-    padding: 9px 15px;
-    border-radius: 3px;
-    -webkit-box-shadow: 0 0 1px grey;
-    box-shadow: 0 0 1px grey;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: not-allowed;
-} */
-.icon{
+  }
+  
+  .icon {
     position: relative;
     top: 1px;
     height: 30px;
     margin-left: 10px;
-    /* padding: 5px; */
-    /* margin: 0px 10px; */
-}
-.loginWithGoogle:hover{
+  }
+  
+  .loginWithGoogle:hover {
     padding-top: 8px;
-    /* margin: 39px auto; */
-    /* margin: 9px auto; */
     border: 1px solid #ff3522;
-}
-.firstlastNameDiv{
+  }
+  
+  .firstlastNameDiv {
     display: flex;
-    justify-content: space-between;
-}
-.box{
-    width: calc(100% - 10px);
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .box {
+    width: 100%;
     font-family: "Poppins";
-    height: 30px;
+    height: 40px;
     padding: 10px;
     margin: 5px;
     outline: none;
     color: rgb(61, 61, 61);
     border: 1px solid rgb(148, 148, 148);
     border-radius: 4px;
-}
-
-.boxDown{
-    /* box-sizing: border-box; */
-    width: calc(100% - 10px);
-}
-
-.submitButton{
+  }
+  
+  .boxDown {
+    width: 100%;
+  }
+  
+  .submitButton {
     margin-top: 10px;
-    height: 35px;
-    width: calc(100% - 10px);
+    height: 40px;
+    width: 100%;
     color: white;
     background-color: rgb(6, 114, 255);
     border: none;
     font-weight: 500;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
     padding: 8px 16px;
     border-radius: 4px;
-}
-.lastDiv{
+  }
+  
+  .lastDiv {
     margin-top: 15px;
-}
-.here{
-    color:rgb(6, 114, 255);
-}
-.warnings{
+    font-size: 16px;
+  }
+  
+  .here {
+    color: rgb(6, 114, 255);
+    text-decoration: none;
+  }
+  
+  .warnings {
     color: red;
     font-family: "Plus Jakarta Sans";
-    font-size: 15px;
-}
-.invalid{
+    font-size: 16px;
+  }
+  
+  .invalid {
     visibility: hidden;
     color: red;
     font-family: "Plus Jakarta Sans";
-    font-size: 15px;
-}
-.spinner{
+    font-size: 16px;
+  }
+  
+  .spinner {
     position: relative;
     top: -8px;
     height: 35px;
-}
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 576px) {
+    .loginPage {
+      margin-top: 5vh;
+      max-width: 40%;
+    }
+  
+    .loginName {
+      font-size: 20px;
+    }
+  
+    .box {
+      height: 36px;
+      padding: 8px;
+      font-size: 14px;
+    }
+  
+    .submitButton {
+      height: 36px;
+      font-size: 14px;
+    }
+  
+    .lastDiv {
+      font-size: 14px;
+    }
+  }
+  
+  /* Tablet Styles */
+  @media (min-width: 577px) and (max-width: 991px) {
+    .loginPage {
+      max-width: 50%;
+    }
+  
+    .loginName {
+      font-size: 22px;
+    }
+  
+    .box {
+      height: 38px;
+      padding: 9px;
+      font-size: 16px;
+    }
+  
+    .submitButton {
+      height: 38px;
+      font-size: 16px;
+    }
+  
+    .lastDiv {
+      font-size: 16px;
+    }
+  }
+  
